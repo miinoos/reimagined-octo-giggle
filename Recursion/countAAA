@@ -1,0 +1,48 @@
+//HackerRank : https://www.hackerrank.com/contests/interview-prep-cohort-1/challenges/recursion-count-of-aaa-hw/problem
+
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+   public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        Scanner sc = new Scanner(System.in);
+        String s = sc.nextLine();
+        s = s.toLowerCase();
+        char[] c = s.toCharArray();
+        int count = 0;
+        int i=0;
+        System.out.println(countAOverlap(c,count,i));
+        System.out.println(countA(c,count,i));
+    }
+    
+    public static int countAOverlap(char c[],int count,int i){
+        if(i==c.length-2)
+            return count;
+        else{
+            if(c[i]=='a' && c[i+1]=='a' && c[i+2]=='a'){
+                i++;
+                count++;
+            }
+            else{
+                i++;
+            }
+        }
+        return countAOverlap(c,count,i);
+    }
+    public static int countA(char c[],int count,int i){
+        if(i>=c.length-2)
+            return count;
+        else{
+            if(c[i]=='a' && c[i+1]=='a' && c[i+2]=='a'){
+                i=i+3;
+                count++;
+            }
+            else{
+                i++;
+            }
+        }
+        return countA(c,count,i);
+    }
+}
